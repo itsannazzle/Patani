@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="display_large">
+        <item name="fontFamily">@font/rufina_bold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:letterSpacing">0.4</item>
+    </style>
+
+    <style name="display_medium">
+        <item name="fontFamily">@font/rufina_regular</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="text_xsmal">
+        <item name="fontFamily">@font/pjs_xtralight</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="text_button">
+        <item name="fontFamily">@font/pjs_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="text_title">
+        <item name="fontFamily">@font/pjs_medium</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="text_small">
+        <item name="fontFamily">@font/pjs_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>
