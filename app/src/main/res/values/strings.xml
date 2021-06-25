@@ -9,4 +9,14 @@
     <string name="daftar">Daftar</string>
     <string name="jual_lebih_awal">Jual lebih awal</string>
     <string name="bebas_biaya_kirim">Bebas Biaya Kirim</string>
+    <string name="masukan_email">Masukan email</string>
+    <string name="masukan_password">Masukan password</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="masukan_nomor_telpon">Masukan nomor telpon</string>
+    <string name="konfirmasi_password">Konfirmasi password</string>
+    <string name="sayur">Sayur</string>
+    <string name="product">Product</string>
+    <string name="kategori">Kategori</string>
+    <string name="panen_sebentar_lagi">Panen sebentar lagi</string>
+    <string name="diskon_50">Diskon 50%</string>
 </resources>

@@ -10,4 +10,8 @@
     <color name="primary">#76C241</color>
     <color name="secondary">#E4E74E</color>
     <color name="transparent">#00FBFBFB</color>
+    <color name="body_copy">#85848D</color>
+    <color name="accent_orange">#F5F7A2</color>
+    <color name="accnet_green">#C2F6A2</color>
+    <color name="card_bg">#D5D5D5</color>
 </resources>

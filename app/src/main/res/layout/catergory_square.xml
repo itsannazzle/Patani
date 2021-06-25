@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/accent_orange"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="5dp"
+    android:layout_width="80dp"
+    android:layout_height="80dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_wortel"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/sayur" />
+    <TextView
+        style="@style/text_xsmal"
+        android:layout_gravity="bottom|center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sayur"
+        android:textColor="@color/black"
+        android:layout_marginBottom="4dp"/>
+
+</com.google.android.material.card.MaterialCardView>

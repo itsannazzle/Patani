@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    tools:context=".ui.HomeFragment">
+
+    <TextView
+        android:id="@+id/text_kategori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/text_small"
+        android:textColor="@color/black"
+        app:layout_constraintHorizontal_bias="0"
+        android:text="@string/kategori"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_kategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_kategori"
+        android:layout_marginTop="8dp"
+        tools:itemCount="2"
+        tools:listitem="@layout/catergory_square"/>
+
+    <TextView
+        android:id="@+id/text_panen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_kategori"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/text_small"
+        android:textColor="@color/black"
+        app:layout_constraintHorizontal_bias="0"
+        android:text="@string/panen_sebentar_lagi"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_produk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_panen"
+        android:layout_marginTop="8dp"
+        tools:itemCount="1"
+        tools:listitem="@layout/card_product"/>
+
+    <TextView
+        android:id="@+id/text_promo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_produk"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/text_small"
+        android:textColor="@color/black"
+        app:layout_constraintHorizontal_bias="0"
+        android:text="@string/diskon_50"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_promo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_promo"
+        android:layout_marginTop="8dp"
+        tools:itemCount="1"
+        tools:listitem="@layout/card_product"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
