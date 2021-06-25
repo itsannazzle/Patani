@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".welcome.OnBoarding2Fragment">
+
+    <ImageView
+        android:id="@+id/ob1_img"
+        android:layout_width="318dp"
+        android:layout_height="414dp"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/jual_lebih_awal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307"
+        />
+
+    <TextView
+        android:id="@+id/ob_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/display_medium"
+        android:text="@string/jual_lebih_awal"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/ob1_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0"/>
+
+    <TextView
+        android:id="@+id/ob1_desc"
+        style="@style/text_xsmal"
+        android:layout_width="312dp"
+        android:layout_height="37dp"
+        android:text="@string/lorem"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ob_title"
+        app:layout_constraintVertical_bias="0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

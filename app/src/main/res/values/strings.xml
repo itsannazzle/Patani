@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Patani</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prediksi_waktu_panen">Prediksi Waktu Panen</string>
+    <string name="lorem">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+    <string name="berikutnya">Berikutnya</string>
+    <string name="masuk">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="jual_lebih_awal">Jual lebih awal</string>
+    <string name="bebas_biaya_kirim">Bebas Biaya Kirim</string>
 </resources>
