@@ -19,4 +19,18 @@
     <string name="kategori">Kategori</string>
     <string name="panen_sebentar_lagi">Panen sebentar lagi</string>
     <string name="diskon_50">Diskon 50%</string>
+    <string name="panen_dalam_2_minggu">Panen dalam 2 minggu</string>
+    <string name="gratis_ongkir">Gratis ongkir</string>
+    <string name="min">-</string>
+    <string name="plus">+</string>
+    <string name="qty">23</string>
+    <string name="deskripsi_produk">Deskripsi produk</string>
+    <string name="beli_sekarang">Beli sekarang</string>
+    <string-array name="satuan">
+        <item>Kg</item>
+        <item>Kodi</item>
+        <item>Box</item>
+        <item>Karung</item>
+        <item>Kuintal</item>
+    </string-array>
 </resources>

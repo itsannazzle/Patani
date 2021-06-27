@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_daftarFragment"
             app:destination="@id/daftarFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -31,4 +34,18 @@
         android:name="com.nextint.patani.ui.DaftarFragment"
         android:label="fragment_daftar"
         tools:layout="@layout/fragment_daftar" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.nextint.patani.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailProdukFragment"
+            app:destination="@id/detailProdukFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProdukFragment"
+        android:name="com.nextint.patani.ui.DetailProdukFragment"
+        android:label="fragment_detail_produk"
+        tools:layout="@layout/fragment_detail_produk" />
 </navigation>

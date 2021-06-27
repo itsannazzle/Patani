@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.nextint.patani.R
 import com.nextint.patani.databinding.FragmentLoginBinding
@@ -29,6 +30,14 @@ class LoginFragment : Fragment() {
         binding?.btnDaftar?.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_daftarFragment)
         }
+        binding?.btnMasuk?.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
+
+        val actionBar = (activity as AppCompatActivity).supportActionBar
+        actionBar?.title = R.string.masuk.toString()
+        actionBar?.setDisplayShowHomeEnabled(true)
+        actionBar?.setDisplayShowHomeEnabled(true)
     }
 
     override fun onDestroy() {
