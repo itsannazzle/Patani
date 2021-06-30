@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import com.nextint.patani.R
 import com.nextint.patani.databinding.FragmentDetailProdukBinding
 
@@ -31,10 +33,21 @@ class DetailProdukFragment : Fragment() {
         val items = listOf(R.array.satuan)
         val adapter = ArrayAdapter(requireContext(),R.layout.menu_dropdown,items)
         (binding?.filledExposedDropdown)?.setAdapter(adapter)
-        val actionBar=  (activity as AppCompatActivity).supportActionBar
-        actionBar?.title = R.string.deskripsi_produk.toString()
-        actionBar?.setDisplayHomeAsUpEnabled(true)
-        actionBar?.setDisplayShowHomeEnabled(true)
+        handleToolbar("Detail Produk")
+    }
+
+    private fun handleToolbar (title : String) {
+        binding?.toolbarT?.toolbarLayout?.apply {
+            this.title = title
+            navigationIcon = ContextCompat.getDrawable(context,R.drawable.ic_baseline_arrow_back_24)
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+            menu.findItem(R.id.cart).setOnMenuItemClickListener {
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                return@setOnMenuItemClickListener true
+            }
+        }
     }
 
     override fun onDestroy() {

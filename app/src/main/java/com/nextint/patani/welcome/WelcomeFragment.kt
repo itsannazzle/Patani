@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.nextint.patani.R
-import com.nextint.patani.adapter.OnBoardingAdapter
-import com.nextint.patani.databinding.ActivityMainBinding
+import com.nextint.patani.ui.adapter.OnBoardingAdapter
 import com.nextint.patani.databinding.FragmentWelcomeBinding
 
 

@@ -1,4 +1,4 @@
-package com.nextint.patani.adapter
+package com.nextint.patani.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

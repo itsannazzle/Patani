@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Theme_Patani)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        supportActionBar?.hide()
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,

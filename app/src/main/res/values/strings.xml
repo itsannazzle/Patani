@@ -26,6 +26,7 @@
     <string name="qty">23</string>
     <string name="deskripsi_produk">Deskripsi produk</string>
     <string name="beli_sekarang">Beli sekarang</string>
+    <string name="keranjang">Keranjang</string>
     <string-array name="satuan">
         <item>Kg</item>
         <item>Kodi</item>
