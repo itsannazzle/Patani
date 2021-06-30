@@ -3,13 +3,15 @@ package com.nextint.patani.core.local
 import com.nextint.patani.R
 
 object content {
-    private val kategori = arrayOf(
+    private val titleKategori = arrayOf(
             "Wortel",
             "Kol",
-            "Timun",
+            "Tomat",
             "Terong",
             "Sawi",
-            "Salada"
+            "Salada",
+            "Strawberry",
+            "Kentang"
     )
 
     private val idProduct = arrayOf(
@@ -33,18 +35,41 @@ object content {
         "id kategori 7",
         "id kategori 8"
     )
-    private val title = arrayOf(
-            "Product 1",
-            "Product 2",
-            "Product 3",
-            "Product 4",
-            "Product 5",
-            "Product 6",
-            "Product 7",
-            "Product 8"
+
+    private val iconKategori = arrayOf(
+            R.drawable.ic_wortel,
+            R.drawable.ic_apple,
+            R.drawable.ic_wortel,
+            R.drawable.ic_apple,
+            R.drawable.ic_wortel,
+            R.drawable.ic_apple,
+            R.drawable.ic_wortel,
+            R.drawable.ic_apple,
+
+    )
+    private val tipeKategori = arrayOf(
+        "Sayur",
+        "Buah",
+        "Sayur",
+        "Buah",
+        "Sayur",
+        "Buah",
+        "Sayur",
+        "Buah",
+
+        )
+    private val titleProduct = arrayOf(
+            "Kentang",
+            "Ubi Ungu",
+            "Kol",
+            "Daun Bawang",
+            "Tomat",
+            "Cabai Merah",
+            "Sawi Hijau",
+            "Bawang Merah"
     )
 
-    private val price = arrayOf(
+    private val priceProduct = arrayOf(
             "Rp.30.000",
             "Rp.90.000",
             "Rp.70.000",
@@ -66,19 +91,57 @@ object content {
             "Hari ini",
     )
 
-    private val desc = Array(title.size){
+    private val location = arrayOf(
+            "Bogor",
+            "Sukabumi",
+            "Bandung",
+            "Cianjur",
+            "Sumedang",
+            "Pekalongan",
+            "Surabaya",
+            "Tegal",
+    )
+
+    private val imageProduct = arrayOf(
+            "https://t4.ftcdn.net/jpg/00/12/67/03/240_F_12670308_0T24c0uDIOIbiT6KpcFTFz8JrFXC88by.jpg",
+            "https://as1.ftcdn.net/v2/jpg/00/36/08/52/1000_F_36085218_riPUMlbDix7hDx0ufcsDthozDEIgdCOK.jpg",
+            "https://t3.ftcdn.net/jpg/02/07/28/92/240_F_207289269_dkOnzpd0q27I8GVR6FlooAJdj0bC98nd.jpg",
+            "https://as2.ftcdn.net/v2/jpg/03/09/12/35/1000_F_309123582_Zk9rTTz7G0NzIUsUZjoybShXKyTfmC9C.jpg",
+            "https://as2.ftcdn.net/v2/jpg/01/08/78/81/1000_F_108788189_SPrPScoLvMTqYKoooHQWUsGC873dcyku.jpg",
+            "https://as2.ftcdn.net/v2/jpg/02/42/05/21/1000_F_242052156_erQ1Tz6iVqtKxDqkVBdh5BJ6raNY9DTd.jpg",
+            "https://as2.ftcdn.net/v2/jpg/01/99/61/79/1000_F_199617959_sdb3e5aEHT1WDH3d9iUS7BoF2zlCL6X4.jpg",
+            "https://as2.ftcdn.net/v2/jpg/01/23/54/55/1000_F_123545590_7gPiE9UI8HxUsnZU0vcoO3fiSnVKlaMj.jpg",
+    )
+
+    private val descProduct = Array(titleProduct.size){
         i -> R.string.lorem.toString()
     }
 
-    val product : ArrayList<DataProduct>
+    val panenSebentarLagi : ArrayList<AlmostPanenProduct>
     get()  {
-        val list = arrayListOf<DataProduct>()
+        val list = arrayListOf<AlmostPanenProduct>()
         for (i in idProduct.indices){
-            val j = DataProduct()
-            j.title = this.title[i]
-            j.price = this.price[i]
+            val j = AlmostPanenProduct()
+            j.title = titleProduct[i]
+            j.price = priceProduct[i]
             j.waktuPanen = this.waktuPanen[i]
-            j.desc = this.desc[i]
+            j.desc = descProduct[i]
+            j.image = imageProduct[i]
+            j.location = this.location[i]
+            list.add(j)
+        }
+        return list
+    }
+
+    val kategoriContent : ArrayList<KategoriProduct>
+    get() {
+        val list = arrayListOf<KategoriProduct>()
+        for (i in idKategori.indices){
+            val j = KategoriProduct()
+            j.id = idKategori[i]
+            j.image = iconKategori[i]
+            j.title = titleKategori[i]
+            j.type = tipeKategori[i]
             list.add(j)
         }
         return list

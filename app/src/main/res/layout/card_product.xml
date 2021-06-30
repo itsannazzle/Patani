@@ -1,59 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="132dp"
     android:layout_height="200dp"
+    android:layout_margin="8dp"
+    app:strokeWidth="0.5dp"
+    app:strokeColor="@color/body_copy"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:backgroundTint="@color/card_bg">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom">
+
         <ImageView
             android:id="@+id/product_img"
             android:layout_width="match_parent"
             android:layout_height="140dp"
+            android:contentDescription="@string/product"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_wortel"
-            android:contentDescription="@string/product" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/prouct_title"
-            style="@style/text_small"
+            style="@style/text_xsmal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_img"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:maxLength="7"
+            android:maxLines="1"
             android:text="@string/sayur"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/product_price" />
 
         <TextView
             android:id="@+id/product_price"
-            style="@style/text_small"
+            style="@style/text_xsmal_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_img"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="83dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/sayur"
-            android:textColor="@color/primary" />
+            android:textColor="@color/primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_img" />
 
         <TextView
             android:id="@+id/product_time"
             style="@style/text_xsmal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:maxLength="5"
+            android:maxLines="1"
             android:text="@string/sayur"
-            android:textColor="@color/body_copy" />
+            android:textColor="@color/body_copy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prouct_title"
+            app:layout_constraintVertical_bias="0.85" />
 
         <ImageView
             android:id="@+id/icon_time"
@@ -61,9 +82,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="42dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_time" />
+            android:src="@drawable/ic_time"
+            android:layout_marginEnd="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/product_time"
+            app:layout_constraintEnd_toStartOf="@+id/product_time"
+            app:layout_constraintTop_toTopOf="@+id/product_time" />
 
         <ImageView
             android:id="@+id/icon_loc"
@@ -72,8 +95,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="4dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_location" />
+            android:src="@drawable/ic_location"
+            app:layout_constraintBottom_toBottomOf="@+id/product_loc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/product_loc" />
 
         <TextView
             android:id="@+id/product_loc"
@@ -82,14 +107,19 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/icon_loc"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="76dp"
-            android:layout_marginBottom="2dp"
+            android:ellipsize="end"
+            android:maxLength="5"
+            android:maxLines="1"
             android:text="@string/sayur"
-            android:textColor="@color/body_copy" />
+            android:textColor="@color/body_copy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.200"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prouct_title"
+            app:layout_constraintVertical_bias="0.85" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </com.google.android.material.card.MaterialCardView>
