@@ -14,11 +14,13 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:overScrollMode="never">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/product_img"
                 android:layout_width="match_parent"
@@ -125,67 +127,60 @@
                 app:layout_constraintStart_toEndOf="@id/text_qty"
                 app:layout_constraintTop_toBottomOf="@id/icon_time" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/spinner_satuan"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toEndOf="@id/btn_plus"
-                app:layout_constraintTop_toBottomOf="@id/text_panen"
-                app:hintTextColor="@color/black"
-                android:hint="Kg">
-
-                <AutoCompleteTextView
-                    android:id="@+id/filled_exposed_dropdown"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/text_detailprod"
+                style="@style/text_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_min"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
-                style="@style/text_small"
-                android:textColor="@color/black"
                 android:text="@string/deskripsi_produk"
-                android:layout_marginStart="16dp"/>
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_min" />
 
             <TextView
                 android:id="@+id/content_desc"
-                android:layout_width="match_parent"
-                android:layout_marginEnd="16dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/text_detailprod"
-                android:layout_marginTop="4dp"
-                app:layout_constraintStart_toStartOf="parent"
                 style="@style/text_xsmal"
-                android:textColor="@color/body_copy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLength="10"
                 android:text="@string/lorem"
+                android:textColor="@color/body_copy"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"/>
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_detailprod" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_relatedProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/card_product"
+                tools:itemCount="1"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/content_desc"/>
             <com.google.android.material.button.MaterialButton
                 style="@style/primaryButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
                 android:text="@string/beli_sekarang"
                 app:icon="@drawable/ic_baseline_arrow_forward_24"
                 app:iconGravity="textEnd"
                 app:iconTint="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/content_desc"
-                app:layout_constraintVertical_bias="1" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="1"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

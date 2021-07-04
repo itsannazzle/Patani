@@ -21,6 +21,7 @@ class DaftarFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentDaftarBinding.inflate(inflater, container, false)
         root = binding?.root
+
         return root
     }
 

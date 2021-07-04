@@ -1,11 +1,11 @@
 package com.nextint.patani.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nextint.patani.R
@@ -31,6 +31,7 @@ class HomeFragment : Fragment() {
         root = binding?.root
         kategoriAdapter.addAll(content.kategoriContent)
         dataAlmostPanen.addAll(content.panenSebentarLagi)
+        setHasOptionsMenu(true)
         return root
     }
 
@@ -40,6 +41,15 @@ class HomeFragment : Fragment() {
         binding?.rvKategori?.adapter = KategoriAdapter(kategoriAdapter)
         panenSoon(dataAlmostPanen)
         diskonProduct(dataAlmostPanen)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.overflow_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!,requireView().findNavController()) || super.onOptionsItemSelected(item)
     }
 
     private fun panenSoon(dataProduct : ArrayList<AlmostPanenProduct>){
@@ -52,7 +62,7 @@ class HomeFragment : Fragment() {
 
     private fun diskonProduct(dataProduct : ArrayList<AlmostPanenProduct>){
         produkAdapter = ProductAdapterBasic(dataProduct){
-            findNavController().navigate(R.id.action_homeFragment_to_detailProdukFragment)
+            findNavController()?.navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(1))
         }
         binding?.rvPromo?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding?.rvPromo?.adapter = produkAdapter
