@@ -58,6 +58,9 @@
         <argument
             android:name="idProduct"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_detailProdukFragment_self"
+            app:destination="@id/detailProdukFragment" />
     </fragment>
     <fragment
         android:id="@+id/keranjangFragment"

@@ -1,188 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:scrollbars="none"
     tools:context=".ui.DetailProdukFragment">
 
-    <include
-        android:id="@+id/toolbar_t"
-        layout="@layout/toolbar"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <androidx.core.widget.NestedScrollView
+        <ImageView
+        android:id="@+id/product_img"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:contentDescription="@string/product"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dummy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+        layout="@layout/gratis_ongkir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/secondary"
+        app:layout_constraintBottom_toBottomOf="@id/product_img"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_product"
+        style="@style/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/product"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_img" />
+
+    <TextView
+        android:id="@+id/text_price"
+        style="@style/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/product"
+        android:textColor="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_img" />
+
+    <ImageView
+        android:id="@+id/icon_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/panen_dalam_2_minggu"
+        android:src="@drawable/ic_time_big"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_product" />
+
+    <TextView
+        android:id="@+id/text_panen"
+        style="@style/text_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/panen_dalam_2_minggu"
+        android:textColor="@color/body_copy"
+        app:layout_constraintStart_toEndOf="@id/icon_time"
+        app:layout_constraintTop_toBottomOf="@id/text_product" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/btn_min"
+        style="@style/text_title"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/accent_orange"
+        android:text="@string/min"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_time" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_qty"
+        style="@style/text_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/qty"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_min"
+        app:layout_constraintStart_toEndOf="@id/btn_min"
+        app:layout_constraintTop_toTopOf="@+id/btn_min" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/btn_plus"
+        style="@style/text_title"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/accent_orange"
+        android:text="@string/plus"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/text_qty"
+        app:layout_constraintTop_toBottomOf="@id/icon_time" />
+
+
+    <TextView
+        android:id="@+id/text_detailprod"
+        style="@style/text_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/deskripsi_produk"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_min" />
+
+    <TextView
+        android:id="@+id/content_desc"
+        style="@style/text_xsmal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLength="10"
+        android:text="@string/lorem"
+        android:textColor="@color/body_copy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_detailprod" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_relatedProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_desc"
+        tools:itemCount="1"
+        tools:listitem="@layout/card_product" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/primaryButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/beli_sekarang"
+            app:icon="@drawable/ic_baseline_arrow_forward_24"
+            app:iconGravity="textEnd"
+            app:iconTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_relatedProduct"
+            tools:layout_editor_absoluteX="16dp" />
 
-            <ImageView
-                android:id="@+id/product_img"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:contentDescription="@string/product"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <include
-                layout="@layout/gratis_ongkir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/secondary"
-                app:layout_constraintBottom_toBottomOf="@id/product_img"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/text_product"
-                style="@style/text_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/product"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/product_img" />
-
-            <TextView
-                android:id="@+id/text_price"
-                style="@style/text_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/product"
-                android:textColor="@color/primary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.95"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/product_img" />
-
-            <ImageView
-                android:id="@+id/icon_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/panen_dalam_2_minggu"
-                android:src="@drawable/ic_time_big"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_product" />
-
-            <TextView
-                android:id="@+id/text_panen"
-                style="@style/text_small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/panen_dalam_2_minggu"
-                android:textColor="@color/body_copy"
-                app:layout_constraintStart_toEndOf="@id/icon_time"
-                app:layout_constraintTop_toBottomOf="@id/text_product" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/btn_min"
-                style="@style/text_title"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/accent_orange"
-                android:text="@string/min"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/icon_time" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/text_qty"
-                style="@style/text_small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/qty"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_min"
-                app:layout_constraintStart_toEndOf="@id/btn_min"
-                app:layout_constraintTop_toTopOf="@+id/btn_min" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/btn_plus"
-                style="@style/text_title"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/accent_orange"
-                android:text="@string/plus"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/text_qty"
-                app:layout_constraintTop_toBottomOf="@id/icon_time" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
 
-            <TextView
-                android:id="@+id/text_detailprod"
-                style="@style/text_small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/deskripsi_produk"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_min" />
 
-            <TextView
-                android:id="@+id/content_desc"
-                style="@style/text_xsmal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:ellipsize="end"
-                android:maxLength="10"
-                android:text="@string/lorem"
-                android:textColor="@color/body_copy"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_detailprod" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_relatedProduct"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/card_product"
-                tools:itemCount="1"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/content_desc"/>
-            <com.google.android.material.button.MaterialButton
-                style="@style/primaryButton"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="@string/beli_sekarang"
-                app:icon="@drawable/ic_baseline_arrow_forward_24"
-                app:iconGravity="textEnd"
-                app:iconTint="@color/black"
-                app:layout_constraintVertical_weight="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintVertical_bias="1"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>

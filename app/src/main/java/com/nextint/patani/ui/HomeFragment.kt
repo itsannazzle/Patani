@@ -41,11 +41,16 @@ class HomeFragment : Fragment() {
         binding?.rvKategori?.adapter = KategoriAdapter(kategoriAdapter)
         panenSoon(dataAlmostPanen)
         diskonProduct(dataAlmostPanen)
+        val navController = requireActivity().findNavController(R.id.fragment)
+        binding?.navView?.let { NavigationUI.setupWithNavController(it, navController) }
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.overflow_menu,menu)
+        inflater.inflate(R.menu.overflow_menu,menu)
+        menu.findItem(R.id.itemShare).setVisible(false)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -54,7 +59,7 @@ class HomeFragment : Fragment() {
 
     private fun panenSoon(dataProduct : ArrayList<AlmostPanenProduct>){
         produkAdapter = ProductAdapterBasic(dataProduct){
-            findNavController().navigate(R.id.action_homeFragment_to_detailProdukFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(2))
         }
         binding?.rvProduk?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding?.rvProduk?.adapter = produkAdapter
@@ -62,7 +67,7 @@ class HomeFragment : Fragment() {
 
     private fun diskonProduct(dataProduct : ArrayList<AlmostPanenProduct>){
         produkAdapter = ProductAdapterBasic(dataProduct){
-            findNavController()?.navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(1))
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(1))
         }
         binding?.rvPromo?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding?.rvPromo?.adapter = produkAdapter

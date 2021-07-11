@@ -20,13 +20,6 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
-        val navController = this.findNavController(R.id.fragment)
-        NavigationUI.setupActionBarWithNavController(this,navController)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.fragment)
-        return navController.navigateUp()
     }
 
     override fun onDestroy() {

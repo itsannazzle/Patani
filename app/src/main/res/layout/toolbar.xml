@@ -1,29 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="350dp"
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
-    android:theme="@style/ThemeOverlay.MaterialComponents.Dark">
-    
-    <com.google.android.material.appbar.CollapsingToolbarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        app:contentScrim="@color/black"
-        app:expandedTitleMarginEnd="20dp"
-        app:expandedTitleMarginStart="15dp"
-        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            app:contentInsetStart="0dp"
-            app:contentInsetStartWithNavigation="0dp"
-            app:layout_collapseMode="pin"
-            app:menu="@menu/toolbar_menu"
-            app:popupTheme="@style/ThemeOverlay.MaterialComponents" />
-    </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-</com.google.android.material.appbar.AppBarLayout>
+    android:id="@+id/toolbar_layout"
+    android:layout_width="0dp"
+    android:layout_height="?actionBarSize"
+    android:background="@color/primary"
+    android:elevation="10dp"
+    app:titleTextColor="@color/white"
+    app:layout_collapseMode="pin"
+    app:menu="@menu/overflow_menu"
+    app:popupTheme="@style/Theme.Patani"/>

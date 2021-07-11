@@ -5,6 +5,11 @@
     <item
         android:id="@+id/keranjangFragment"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
-        android:title="Item"
-        app:showAsAction="always" />
+        android:title="@string/keranjang"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/itemShare"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="@string/share"
+        app:showAsAction="ifRoom" />
 </menu>
