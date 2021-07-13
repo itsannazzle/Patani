@@ -8,6 +8,5 @@
     android:background="@color/primary"
     android:elevation="10dp"
     app:titleTextColor="@color/white"
-    app:layout_collapseMode="pin"
     app:menu="@menu/overflow_menu"
-    app:popupTheme="@style/Theme.Patani"/>
+    app:popupTheme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"/>
