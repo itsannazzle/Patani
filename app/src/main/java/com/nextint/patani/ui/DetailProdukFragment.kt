@@ -1,6 +1,7 @@
 package com.nextint.patani.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -45,15 +46,7 @@ class DetailProdukFragment : Fragment() {
         (binding?.filledExposedDropdown)?.setAdapter(adapter)*/
 //        handleToolbar("Detail Produk")
         recomenProduct(recomendationProduct)
-        binding?.toolbar?.toolbarLayout.apply {
-            this?.title = "Detail Product"
-        }
-        binding?.toolbar?.toolbarLayout?.apply {
-            navigationIcon = ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_arrow_back_24)
-            setNavigationOnClickListener { findNavController().popBackStack() }
-        }
-
-
+        toolbarSetup()
     }
 
     private fun recomenProduct(dataProduct : ArrayList<AlmostPanenProduct>){
@@ -61,7 +54,7 @@ class DetailProdukFragment : Fragment() {
             findNavController().navigate(DetailProdukFragmentDirections.actionDetailProdukFragmentSelf(2))
         }
         binding?.rvRelatedProduct?.adapter = adapter
-        binding?.rvRelatedProduct?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        binding?.rvRelatedProduct?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
     }
     @SuppressLint("QueryPermissionsNeeded")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -95,19 +88,35 @@ class DetailProdukFragment : Fragment() {
         return  super.onOptionsItemSelected(item)
     }
 
-//    private fun handleToolbar (title : String) {
-//        binding?.toolbarT?.toolbarLayout?.apply {
-//            this.title = title
-//            navigationIcon = ContextCompat.getDrawable(context,R.drawable.ic_baseline_arrow_back_24)
-//            setNavigationOnClickListener {
-//                findNavController().popBackStack()
-//            }
-//            menu.findItem(R.id.cart).setOnMenuItemClickListener {
-//                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-//                return@setOnMenuItemClickListener true
+    private fun toolbarSetup() {
+        binding?.toolbar?.toolbarLayout?.apply {
+            this.title = "Detail Product"
+            navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_arrow_back_24)
+            setNavigationOnClickListener { findNavController().popBackStack() }
+            background = ContextCompat.getDrawable(requireContext(),R.color.primary)
+            inflateMenu(R.menu.overflow_menu)
+            popupTheme = R.style.customStatusBar
+
+        }
+
+        binding?.toolbar?.toolbarLayout?.setOnMenuItemClickListener {
+            null == getShareIntent().resolveActivity(requireActivity().packageManager)
+        }
+
+//        binding?.toolbar?.toolbarLayout?.setOnMenuItemClickListener {
+//            MenuItem.OnMenuItemClickListener { item ->
+//                when (item.itemId) {
+//                    R.id.keranjangFragment -> NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+//                    R.id.itemShare -> shareSucess()
+//                    else ->
+//                }
+//
 //            }
 //        }
-//    }
+
+    }
+
+
 
     override fun onDestroy() {
         super.onDestroy()

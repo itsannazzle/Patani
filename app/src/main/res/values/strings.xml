@@ -30,6 +30,7 @@
     <string name="share">Share</string>
     <string name="share_succes">Berhasil bagikan konten</string>
     <string name="pengiriman">Pesanan saya</string>
+    <string name="kg">/ kg</string>
     <string-array name="satuan">
         <item>Kg</item>
         <item>Kodi</item>

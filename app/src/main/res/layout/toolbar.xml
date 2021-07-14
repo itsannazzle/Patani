@@ -3,10 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar_layout"
-    android:layout_width="0dp"
-    android:layout_height="?actionBarSize"
-    android:background="@color/primary"
-    android:elevation="10dp"
-    app:titleTextColor="@color/white"
-    app:menu="@menu/overflow_menu"
-    app:popupTheme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"/>
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:titleTextColor="@color/white" />

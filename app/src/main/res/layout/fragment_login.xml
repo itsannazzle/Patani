@@ -5,30 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".ui.LoginFragment">
-
-<!--    <TextView-->
-<!--        android:id="@+id/title_masuk"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        style="@style/text_title"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:text="@string/masuk"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0"-->
-<!--        app:layout_constraintHorizontal_bias="0"/>-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
         android:hint="@string/masukan_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -46,9 +31,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:hint="@string/masukan_password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_email">
@@ -66,9 +48,9 @@
         style="@style/primaryButton"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginStart="16dp"
+
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+
         android:text="@string/masuk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,9 +73,9 @@
         style="@style/secondaryButton"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginStart="16dp"
+
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+
         android:text="@string/daftar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

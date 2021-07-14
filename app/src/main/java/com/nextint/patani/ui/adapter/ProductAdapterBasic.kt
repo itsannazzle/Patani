@@ -50,8 +50,7 @@ class ProductAdapterBasic<T>(private val typeProduct : ArrayList<T>,
                         .fitCenter()
                         .into(productImg)
                 productPrice.text = price
-                productTime.text = waktuPanen
-                productLoc.text = location
+                supplier.text = location
             }
             itemView.setOnClickListener { action(typeProduct) }
         }
