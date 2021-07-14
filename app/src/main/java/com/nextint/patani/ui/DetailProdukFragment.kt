@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -96,12 +97,29 @@ class DetailProdukFragment : Fragment() {
             background = ContextCompat.getDrawable(requireContext(),R.color.primary)
             inflateMenu(R.menu.overflow_menu)
             popupTheme = R.style.customStatusBar
+            menu.findItem(R.id.keranjangFragment).setOnMenuItemClickListener {
+                    findNavController().navigate(DetailProdukFragmentDirections.actionDetailProdukFragmentToKeranjangFragment())
+                    return@setOnMenuItemClickListener true
+            }
+            menu.findItem(R.id.itemShare).setOnMenuItemClickListener {
+                val mimeType = "text/plain"
+                ShareCompat.IntentBuilder
+                        .from(requireActivity())
+                        .setType(mimeType)
+                        .setChooserTitle(getString(R.string.share_succes))
+                        .setText(getString(R.string.share_succes))
+                        .startChooser()
+                return@setOnMenuItemClickListener true
+            }
+
 
         }
 
         binding?.toolbar?.toolbarLayout?.setOnMenuItemClickListener {
             null == getShareIntent().resolveActivity(requireActivity().packageManager)
         }
+
+
 
 //        binding?.toolbar?.toolbarLayout?.setOnMenuItemClickListener {
 //            MenuItem.OnMenuItemClickListener { item ->

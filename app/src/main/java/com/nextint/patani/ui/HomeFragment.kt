@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         panenSoon(dataAlmostPanen)
         diskonProduct(dataAlmostPanen)
         val navController = requireActivity().findNavController(R.id.fragment)
-        binding?.navView?.let { NavigationUI.setupWithNavController(it, navController) }
+
     }
 
 
