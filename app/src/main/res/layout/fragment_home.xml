@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
-    tools:context=".ui.HomeFragment"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.home.HomeFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
+        android:layout_marginBottom="64dp"
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,15 +23,15 @@
             <TextView
                 android:id="@+id/text_kategori"
                 style="@style/text_small"
-                android:layout_marginTop="24dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:text="@string/kategori"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_kategori"
@@ -43,7 +43,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_kategori"
                 tools:itemCount="2"
-                tools:listitem="@layout/catergory_square"/>
+                tools:listitem="@layout/catergory_square" />
 
             <TextView
                 android:id="@+id/text_panen"
@@ -56,7 +56,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_kategori"/>
+                app:layout_constraintTop_toBottomOf="@id/rv_kategori" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -69,7 +69,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_panen"
                 tools:itemCount="1"
-                tools:listitem="@layout/card_product"/>
+                tools:listitem="@layout/card_product" />
 
             <TextView
                 android:id="@+id/text_promo"
@@ -82,7 +82,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_produk"/>
+                app:layout_constraintTop_toBottomOf="@id/rv_produk" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -94,14 +94,37 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_promo"
-                tools:itemCount="1"
-                tools:listitem="@layout/card_product"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:itemCount="5"
+                tools:listitem="@layout/card_product" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fabCradleMargin="5dp"
+        android:fitsSystemWindows="true"
+        app:backgroundTint="@color/white"
+        app:fabCradleVerticalOffset="5dp"
+        app:fabCradleRoundedCornerRadius="10dp"
+        android:layout_gravity="bottom">
 
-    
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/hamburger_menu" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/secondary"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_anchor="@id/bottomAppBar"
+        android:contentDescription="@string/button_add" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

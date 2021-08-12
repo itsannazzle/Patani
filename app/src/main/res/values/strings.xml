@@ -23,7 +23,7 @@
     <string name="gratis_ongkir">Gratis ongkir</string>
     <string name="min">-</string>
     <string name="plus">+</string>
-    <string name="qty">23</string>
+    <string name="qty">0</string>
     <string name="deskripsi_produk">Deskripsi produk</string>
     <string name="beli_sekarang">Beli sekarang</string>
     <string name="keranjang">Keranjang</string>
@@ -31,6 +31,11 @@
     <string name="share_succes">Berhasil bagikan konten</string>
     <string name="pengiriman">Pesanan saya</string>
     <string name="kg">/ kg</string>
+    <string name="checkout">Checkout</string>
+    <string name="button_add">button_add</string>
+    <string name="btn_minus">btn minus</string>
+    <string name="btn_plus">btn plus</string>
+    <string name="tambah_ke_keranjang">Tambah ke keranjang</string>
     <string-array name="satuan">
         <item>Kg</item>
         <item>Kodi</item>

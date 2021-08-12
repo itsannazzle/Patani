@@ -1,30 +1,30 @@
-package com.nextint.patani.ui
+package com.nextint.patani.ui.product
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nextint.patani.R
 import com.nextint.patani.core.local.AlmostPanenProduct
-import com.nextint.patani.core.local.content
+import com.nextint.patani.core.local.entity.content
 import com.nextint.patani.databinding.FragmentDetailProdukBinding
+import com.nextint.patani.ui.CardBottomSheetDialog
+import com.nextint.patani.ui.product.DetailProdukFragmentArgs
+import com.nextint.patani.ui.product.DetailProdukFragmentDirections
 import com.nextint.patani.ui.adapter.ProductAdapterBasic
+import timber.log.Timber
 
 class DetailProdukFragment : Fragment() {
     private var _binding : FragmentDetailProdukBinding? = null
     private val binding get() = _binding
+    private val bottomSheetDialog = CardBottomSheetDialog()
     private var root : View? = null
     private val recomendationProduct : ArrayList<AlmostPanenProduct> = arrayListOf()
     private lateinit var adapter : ProductAdapterBasic<AlmostPanenProduct>
@@ -36,6 +36,7 @@ class DetailProdukFragment : Fragment() {
         _binding = FragmentDetailProdukBinding.inflate(inflater, container, false)
         root = binding?.root
         recomendationProduct.addAll(content.panenSebentarLagi)
+
         setHasOptionsMenu(true)
         return root
     }
@@ -47,12 +48,25 @@ class DetailProdukFragment : Fragment() {
         (binding?.filledExposedDropdown)?.setAdapter(adapter)*/
 //        handleToolbar("Detail Produk")
         recomenProduct(recomendationProduct)
+        binding?.btnBeli?.setOnClickListener {
+            bottomSheetDialog.show(parentFragmentManager,"bottomSheet")
+        }
+        Timber.i("detail on view created")
         toolbarSetup()
+    }
+
+    override fun onStart() {
+        Timber.i("detail onstart")
+        super.onStart()
     }
 
     private fun recomenProduct(dataProduct : ArrayList<AlmostPanenProduct>){
         adapter = ProductAdapterBasic(dataProduct){
-            findNavController().navigate(DetailProdukFragmentDirections.actionDetailProdukFragmentSelf(2))
+            findNavController().navigate(
+                DetailProdukFragmentDirections.actionDetailProdukFragmentSelf(
+                    2
+                )
+            )
         }
         binding?.rvRelatedProduct?.adapter = adapter
         binding?.rvRelatedProduct?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
@@ -96,7 +110,7 @@ class DetailProdukFragment : Fragment() {
             setNavigationOnClickListener { findNavController().popBackStack() }
             background = ContextCompat.getDrawable(requireContext(),R.color.primary)
             inflateMenu(R.menu.overflow_menu)
-            popupTheme = R.style.customStatusBar
+           // popupTheme = R.style.ThemeOverlay_AppCompat_ActionBar
             menu.findItem(R.id.keranjangFragment).setOnMenuItemClickListener {
                     findNavController().navigate(DetailProdukFragmentDirections.actionDetailProdukFragmentToKeranjangFragment())
                     return@setOnMenuItemClickListener true
@@ -141,5 +155,6 @@ class DetailProdukFragment : Fragment() {
         _binding = null
         root = null
     }
+
 
 }

@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:strokeColor="@color/body_copy"
+    app:strokeWidth="1dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp">
 

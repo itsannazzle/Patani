@@ -1,4 +1,4 @@
-package com.nextint.patani.ui
+package com.nextint.patani.ui.cart
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

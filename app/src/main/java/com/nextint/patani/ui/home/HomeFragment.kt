@@ -1,4 +1,4 @@
-package com.nextint.patani.ui
+package com.nextint.patani.ui.home
 
 import android.os.Bundle
 import android.view.*
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nextint.patani.R
 import com.nextint.patani.core.local.AlmostPanenProduct
 import com.nextint.patani.core.local.KategoriProduct
-import com.nextint.patani.core.local.content
+import com.nextint.patani.core.local.entity.content
 import com.nextint.patani.databinding.FragmentHomeBinding
 import com.nextint.patani.ui.adapter.KategoriAdapter
 import com.nextint.patani.ui.adapter.ProductAdapterBasic
@@ -59,7 +59,11 @@ class HomeFragment : Fragment() {
 
     private fun panenSoon(dataProduct : ArrayList<AlmostPanenProduct>){
         produkAdapter = ProductAdapterBasic(dataProduct){
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(2))
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(
+                    2
+                )
+            )
         }
         binding?.rvProduk?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding?.rvProduk?.adapter = produkAdapter
@@ -67,7 +71,11 @@ class HomeFragment : Fragment() {
 
     private fun diskonProduct(dataProduct : ArrayList<AlmostPanenProduct>){
         produkAdapter = ProductAdapterBasic(dataProduct){
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(1))
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(
+                    1
+                )
+            )
         }
         binding?.rvPromo?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding?.rvPromo?.adapter = produkAdapter

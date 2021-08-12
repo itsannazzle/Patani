@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp">
+
+    <Spinner
+        android:id="@+id/spin_satuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/satuan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_price"
+        style="@style/text_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spin_satuan" />
+
+    <ImageButton
+        android:id="@+id/btn_min"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_minus_btn"
+        android:contentDescription="@string/btn_minus"
+        app:layout_constraintEnd_toStartOf="@+id/text_qty"
+        app:layout_constraintTop_toTopOf="@+id/text_price" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_qty"
+        style="@style/text_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/qty"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_min"
+        app:layout_constraintEnd_toStartOf="@+id/btn_plus"
+        app:layout_constraintTop_toTopOf="@+id/btn_min" />
+
+    <ImageButton
+        android:id="@+id/btn_plus"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/ic_plus"
+        android:contentDescription="@string/btn_plus"
+        app:layout_constraintBottom_toBottomOf="@+id/text_qty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_qty" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_beli"
+        style="@style/primaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/tambah_ke_keranjang"
+        android:layout_marginTop="32dp"
+        app:iconTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,8 @@
-package com.nextint.patani.core.local
+package com.nextint.patani.core.local.entity
 
 import com.nextint.patani.R
+import com.nextint.patani.core.local.AlmostPanenProduct
+import com.nextint.patani.core.local.KategoriProduct
 
 object content {
     private val titleKategori = arrayOf(
@@ -124,10 +126,10 @@ object content {
             val j = AlmostPanenProduct()
             j.title = titleProduct[i]
             j.price = priceProduct[i]
-            j.waktuPanen = this.waktuPanen[i]
+            j.waktuPanen = waktuPanen[i]
             j.desc = descProduct[i]
             j.image = imageProduct[i]
-            j.location = this.location[i]
+            j.location = location[i]
             list.add(j)
         }
         return list

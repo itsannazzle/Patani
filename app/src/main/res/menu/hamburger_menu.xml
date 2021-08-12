@@ -3,5 +3,19 @@
 
     <item
         android:id="@+id/itemPesanan"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
         android:title="@string/pengiriman" />
+    <item
+        android:id="@+id/itemPesanan2"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="@string/pengiriman" />
+    <item
+        android:id="@+id/itemPesanan3"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="@string/pengiriman" />
+    <item
+        android:id="@+id/itemPesanan4"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="@string/pengiriman" />
+
 </menu>
