@@ -15,9 +15,6 @@ import com.nextint.patani.R
 import com.nextint.patani.core.local.AlmostPanenProduct
 import com.nextint.patani.core.local.entity.content
 import com.nextint.patani.databinding.FragmentDetailProdukBinding
-import com.nextint.patani.ui.CardBottomSheetDialog
-import com.nextint.patani.ui.product.DetailProdukFragmentArgs
-import com.nextint.patani.ui.product.DetailProdukFragmentDirections
 import com.nextint.patani.ui.adapter.ProductAdapterBasic
 import timber.log.Timber
 
@@ -47,15 +44,16 @@ class DetailProdukFragment : Fragment() {
         val adapter = ArrayAdapter(requireContext(),R.layout.menu_dropdown,items)
         (binding?.filledExposedDropdown)?.setAdapter(adapter)*/
 //        handleToolbar("Detail Produk")
-        recomenProduct(recomendationProduct)
-        binding?.btnBeli?.setOnClickListener {
-            bottomSheetDialog.show(parentFragmentManager,"bottomSheet")
-        }
+
         Timber.i("detail on view created")
         toolbarSetup()
     }
 
     override fun onStart() {
+        recomenProduct(recomendationProduct)
+        binding?.btnBeli?.setOnClickListener {
+            bottomSheetDialog.show(parentFragmentManager,"bottomSheet")
+        }
         Timber.i("detail onstart")
         super.onStart()
     }

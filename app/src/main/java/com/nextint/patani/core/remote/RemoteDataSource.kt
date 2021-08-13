@@ -23,13 +23,13 @@ class RemoteDataSource {
             }
     }
 
-    fun postLogin(email: String, password: String) : LiveData<String>{
-        val dataResult = MutableLiveData<String>()
+    fun postLogin(email: String, password: String) : LiveData<LoginResponse>{
+        val dataResult = MutableLiveData<LoginResponse>()
         Config.retrofitRequest().userLogin(email, password).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful){
                     handler.post {
-                        dataResult.value = response.body()?.username
+                        dataResult.value = response.body()
                     }
                 }
             }
@@ -43,7 +43,7 @@ class RemoteDataSource {
     }
 
     fun postRegister(registerEntity : UserRegisterEntity) : LiveData<Boolean>{
-        var registerStatus = MutableLiveData<Boolean>()
+        val registerStatus = MutableLiveData<Boolean>()
         with(registerEntity){
             Config.retrofitRequest().userResgister(email,nomorTelpon,password).enqueue(object :
                 Callback<ResponseBody> {

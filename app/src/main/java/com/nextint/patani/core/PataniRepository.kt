@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.nextint.patani.core.local.LocalDataSource
 import com.nextint.patani.core.local.entity.UserRegisterEntity
 import com.nextint.patani.core.remote.RemoteDataSource
+import com.nextint.patani.core.remote.response.LoginResponse
 import java.lang.Exception
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -20,7 +21,7 @@ class PataniRepository private constructor(private val remoteDataSource: RemoteD
             }
     }
 
-    fun loginValidation(email : String, password : String) : LiveData<String> {
+    fun loginValidation(email : String, password : String) : LiveData<LoginResponse> {
         return remoteDataSource.postLogin(email, password)
     }
 

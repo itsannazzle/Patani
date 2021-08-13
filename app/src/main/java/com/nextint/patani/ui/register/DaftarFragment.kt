@@ -29,16 +29,13 @@ class DaftarFragment : Fragment() {
         _binding = FragmentDaftarBinding.inflate(inflater, container, false)
         root = binding?.root
 
-        var password = ""
-        val inputedPassword = binding?.inputPassword.toString()
-        val reinputedPassword = binding?.inputRepassword
+        val inputedPassword = binding?.regEdPass?.text.toString()
+        val reinputedPassword = binding?.regEdConfm?.text.toString()
 
-        if (inputedPassword !== reinputedPassword.toString()){
-            reinputedPassword?.helperText = "Password yang dimasukan tidak sama"
-        } else {
-            password = inputedPassword
-        }
-        userRegisterEntity = UserRegisterEntity(binding?.inputEmail.toString(),binding?.inputPhonenum.toString(),password)
+        if (inputedPassword !== reinputedPassword) binding?.inputRepassword?.helperText = "Password yang dimasukan tidak sama"
+
+
+        userRegisterEntity = UserRegisterEntity(binding?.regEdEmail?.text.toString(),binding?.regEdTelp?.text.toString(),inputedPassword)
         binding?.btnDaftar?.setOnClickListener {
             viewModel.postRegister(userRegisterEntity).observe(viewLifecycleOwner) { state ->
                 if (state) Toast.makeText(requireContext(), "berhasil daftra", Toast.LENGTH_SHORT)
@@ -46,8 +43,6 @@ class DaftarFragment : Fragment() {
                     .show()
             }
         }
-
-
         return root
     }
 
