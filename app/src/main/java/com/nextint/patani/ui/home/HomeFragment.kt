@@ -54,17 +54,33 @@ class HomeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!,requireView().findNavController()) || super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(item,requireView().findNavController()) || super.onOptionsItemSelected(item)
     }
 
     private fun panenSoon(dataProduct : ArrayList<AlmostPanenProduct>){
-        produkAdapter = ProductAdapterBasic(dataProduct){
-            findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(
-                    2
-                )
-            )
+        val mBundle = Bundle()
+        for(data in dataProduct){
+            mBundle.putString(EXTRA_TITLE,data.title)
+            mBundle.putString(EXTRA_PRICE,data.price)
+            mBundle.putString(EXTRA_DESC,data.desc)
+            mBundle.putString(EXTRA_LOCATION,data.location)
+            mBundle.putString(EXTRA_IMG,data.image)
+            mBundle.putString(EXTRA_WAKTUPANEN,data.waktuPanen)
         }
+
+        produkAdapter = ProductAdapterBasic(dataProduct){
+//            findNavController().navigate(
+//                HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(mBundle
+//                )
+//            )
+            findNavController().navigate(R.id.action_homeFragment_to_detailProdukFragment,mBundle)
+        }
+//        produkAdapter = ProductAdapterBasic(dataProduct){
+//            val intent = Intent(requireActivity(),DetailProdukFragment::class.java)
+//            intent.putExtra(EXTRA_DATA_DETAIL,dataProduct)
+//            startActivity(intent)
+//        }
+
         binding?.rvProduk?.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding?.rvProduk?.adapter = produkAdapter
     }
@@ -85,5 +101,16 @@ class HomeFragment : Fragment() {
         super.onDestroy()
         _binding = null
         root = null
+    }
+    companion object{
+        const val EXTRA_DATA_DETAIL = "EXTRA DATA"
+        const val EXTRA_ID = "EXTRA ID"
+        const val EXTRA_TITLE = "EXTRA TITLE"
+        const val EXTRA_DESC = "EXTRA DESC"
+        const val EXTRA_PRICE = "EXTRA PRICE"
+        const val EXTRA_WAKTUPANEN = "EXTRA WAKTUPANEN"
+        const val EXTRA_IMG = "EXTRA IMG"
+        const val EXTRA_LOCATION = "EXTRA LOCATION"
+
     }
 }

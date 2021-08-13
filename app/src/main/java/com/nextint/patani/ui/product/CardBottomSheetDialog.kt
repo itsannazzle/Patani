@@ -23,9 +23,11 @@ class CardBottomSheetDialog : BottomSheetDialogFragment(), View.OnClickListener 
         bindingView?.btnBeli?.setOnClickListener(this)
         bindingView?.btnMin?.setOnClickListener(this)
         bindingView?.btnPlus?.setOnClickListener(this)
+        val getPrice = arguments?.getInt("prodPrice")
         viewModel.qty.observe(viewLifecycleOwner,{
+
             qty -> bindingView?.textQty?.text = qty.toString()
-            val price = qty * 5000
+            val price =  qty * getPrice!!
             bindingView?.textPrice?.text = price.toString()
         })
         return bindingView?.root

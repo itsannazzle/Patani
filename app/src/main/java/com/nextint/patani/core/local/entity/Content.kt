@@ -3,6 +3,7 @@ package com.nextint.patani.core.local.entity
 import com.nextint.patani.R
 import com.nextint.patani.core.local.AlmostPanenProduct
 import com.nextint.patani.core.local.KategoriProduct
+import com.nextint.patani.core.local.Keranjang
 
 object content {
     private val titleKategori = arrayOf(
@@ -17,25 +18,11 @@ object content {
     )
 
     private val idProduct = arrayOf(
-        "id Product 1",
-        "id Product 2",
-        "id Product 3",
-        "id Product 4",
-        "id Product 5",
-        "id Product 6",
-        "id Product 7",
-        "id Product 8"
+        1,2,3,4,5,6,7,8
     )
 
     private val idKategori = arrayOf(
-        "id kategori 1",
-        "id kategori 2",
-        "id kategori 3",
-        "id kategori 4",
-        "id kategori 5",
-        "id kategori 6",
-        "id kategori 7",
-        "id kategori 8"
+        11,12,13,14,15,16,17,18
     )
 
     private val iconKategori = arrayOf(
@@ -72,14 +59,14 @@ object content {
     )
 
     private val priceProduct = arrayOf(
-            "Rp.30.000",
-            "Rp.90.000",
-            "Rp.70.000",
-            "RP.92.000",
-            "Rp.130.000",
-            "Rp.10.000",
-            "Rp.30.000",
-            "RP.72.000",
+            "30000",
+            "90000",
+            "70000",
+            "92000",
+            "130000",
+            "10000",
+            "30000",
+            "72000",
     )
 
     private val waktuPanen = arrayOf(
@@ -115,6 +102,22 @@ object content {
             "https://as2.ftcdn.net/v2/jpg/01/23/54/55/1000_F_123545590_7gPiE9UI8HxUsnZU0vcoO3fiSnVKlaMj.jpg",
     )
 
+    private val keranjangTitle = arrayOf(
+        "Bawang Merah",
+        "Kentang",
+        "Ubi Ungu",
+        "Kol"
+    )
+    private val keranjangSatuan = arrayOf(
+        "Kg",
+        "Kodi",
+        "Box",
+        "Karung"
+    )
+    private val keranjangQTY = arrayOf(1,2,3,4)
+
+    private val totalProce = arrayOf(2000,5000,150000,45000)
+
     private val descProduct = Array(titleProduct.size){
         i -> R.string.lorem.toString()
     }
@@ -144,6 +147,22 @@ object content {
             j.image = iconKategori[i]
             j.title = titleKategori[i]
             j.type = tipeKategori[i]
+            list.add(j)
+        }
+        return list
+    }
+
+    val keranjangCart : ArrayList<Keranjang>
+    get() {
+        val list = arrayListOf<Keranjang>()
+        for (i in keranjangTitle.indices){
+            val j = Keranjang(
+                keranjangTitle[i],
+                keranjangSatuan[i],
+                keranjangQTY[i],
+                totalProce[i],
+                imageProduct[i]
+            )
             list.add(j)
         }
         return list

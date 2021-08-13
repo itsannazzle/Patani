@@ -14,7 +14,7 @@ class KategoriAdapter(private val kategori : ArrayList<KategoriProduct>) : Recyc
         @SuppressLint("ResourceAsColor")
         fun bind(kategori : KategoriProduct){
             with(binding){
-                kategori.image?.let { catehoryImage.setImageResource(it) }
+                kategori.image.let { catehoryImage.setImageResource(it) }
                 categoryTitle.text = kategori.title
                 when {
                      kategori.type == "Sayur" -> cardCaetgory.setCardBackgroundColor(ContextCompat.getColor(itemView.context,R.color.accnet_green))

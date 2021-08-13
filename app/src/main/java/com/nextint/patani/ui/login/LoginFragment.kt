@@ -36,23 +36,25 @@ class LoginFragment : Fragment() {
         Timber.i(" onViewCreated")
         super.onViewCreated(view, savedInstanceState)
         binding?.btnDaftar?.setOnClickListener {
+
             findNavController().navigate(R.id.action_loginFragment_to_daftarFragment)
         }
 
 
 
         binding?.btnMasuk?.setOnClickListener {
-      //      findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            val email = binding?.edtEmail?.text.toString().trim()
-            val password = binding?.edtPass?.text.toString().trim()
-            Timber.i(email)
-            Timber.i(password)
-            viewModel.loginValidation(email,password).observe(viewLifecycleOwner,{
-                    login ->
-                Timber.i("ini login $login")
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-
-            })
+            binding?.progressBar?.visibility = View.VISIBLE
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+//            val email = binding?.edtEmail?.text.toString().trim()
+//            val password = binding?.edtPass?.text.toString().trim()
+//            Timber.i(email)
+//            Timber.i(password)
+//            viewModel.loginValidation(email,password).observe(viewLifecycleOwner,{
+//                    login ->
+//                Timber.i("ini login $login")
+//                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+//
+//            })
         }
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar?.title = R.string.masuk.toString()

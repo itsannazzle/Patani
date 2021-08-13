@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.nextint.patani.R
 import com.nextint.patani.ViewModelFactory
 import com.nextint.patani.core.local.entity.UserRegisterEntity
@@ -29,20 +30,24 @@ class DaftarFragment : Fragment() {
         _binding = FragmentDaftarBinding.inflate(inflater, container, false)
         root = binding?.root
 
-        val inputedPassword = binding?.regEdPass?.text.toString()
-        val reinputedPassword = binding?.regEdConfm?.text.toString()
-
-        if (inputedPassword !== reinputedPassword) binding?.inputRepassword?.helperText = "Password yang dimasukan tidak sama"
-
-
-        userRegisterEntity = UserRegisterEntity(binding?.regEdEmail?.text.toString(),binding?.regEdTelp?.text.toString(),inputedPassword)
         binding?.btnDaftar?.setOnClickListener {
-            viewModel.postRegister(userRegisterEntity).observe(viewLifecycleOwner) { state ->
-                if (state) Toast.makeText(requireContext(), "berhasil daftra", Toast.LENGTH_SHORT)
-                    .show() else Toast.makeText(requireContext(), "gagal", Toast.LENGTH_SHORT)
-                    .show()
-            }
+            binding?.progressBar2?.visibility = View.VISIBLE
+            findNavController().navigate(R.id.action_daftarFragment_to_regisBerhasilFragment)
         }
+//        val inputedPassword = binding?.regEdPass?.text.toString()
+//        val reinputedPassword = binding?.regEdConfm?.text.toString()
+//
+//        if (inputedPassword !== reinputedPassword) binding?.inputRepassword?.helperText = "Password yang dimasukan tidak sama"
+//
+//
+//        userRegisterEntity = UserRegisterEntity(binding?.regEdEmail?.text.toString(),binding?.regEdTelp?.text.toString(),inputedPassword)
+//        binding?.btnDaftar?.setOnClickListener {
+//            viewModel.postRegister(userRegisterEntity).observe(viewLifecycleOwner) { state ->
+//                if (state) Toast.makeText(requireContext(), "berhasil daftra", Toast.LENGTH_SHORT)
+//                    .show() else Toast.makeText(requireContext(), "gagal", Toast.LENGTH_SHORT)
+//                    .show()
+//            }
+//        }
         return root
     }
 

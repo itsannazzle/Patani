@@ -9,13 +9,16 @@ import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.nextint.patani.R
 import com.nextint.patani.core.local.AlmostPanenProduct
 import com.nextint.patani.core.local.entity.content
 import com.nextint.patani.databinding.FragmentDetailProdukBinding
 import com.nextint.patani.ui.adapter.ProductAdapterBasic
+import com.nextint.patani.ui.home.HomeFragment
 import timber.log.Timber
 
 class DetailProdukFragment : Fragment() {
@@ -25,6 +28,8 @@ class DetailProdukFragment : Fragment() {
     private var root : View? = null
     private val recomendationProduct : ArrayList<AlmostPanenProduct> = arrayListOf()
     private lateinit var adapter : ProductAdapterBasic<AlmostPanenProduct>
+    private var passPrice = 0
+    private val dataProduct = arguments?.getString(HomeFragment.EXTRA_PRICE)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,8 +37,20 @@ class DetailProdukFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentDetailProdukBinding.inflate(inflater, container, false)
         root = binding?.root
-        recomendationProduct.addAll(content.panenSebentarLagi)
+        Timber.i("data $dataProduct")
+        binding?.textProduct?.text = arguments?.getString(HomeFragment.EXTRA_TITLE)
+        binding?.contentDesc?.text = arguments?.getString(HomeFragment.EXTRA_DESC)
+        binding?.textPrice?.text = arguments?.getString(HomeFragment.EXTRA_PRICE)
+        binding?.textPanen?.text = arguments?.getString(HomeFragment.EXTRA_WAKTUPANEN)
+        binding?.productImg?.let {
+            Glide.with(requireActivity())
+                .load(arguments?.getString(HomeFragment.EXTRA_IMG))
+                .fitCenter()
+                .into(it)
+        }
+        passPrice = arguments?.getString(HomeFragment.EXTRA_PRICE)?.toInt()!!
 
+        recomendationProduct.addAll(content.panenSebentarLagi)
         setHasOptionsMenu(true)
         return root
     }
@@ -53,6 +70,9 @@ class DetailProdukFragment : Fragment() {
         recomenProduct(recomendationProduct)
         binding?.btnBeli?.setOnClickListener {
             bottomSheetDialog.show(parentFragmentManager,"bottomSheet")
+            val bundle = Bundle()
+            bundle.putInt("prodPrice", passPrice)
+            bottomSheetDialog.arguments = bundle
         }
         Timber.i("detail onstart")
         super.onStart()

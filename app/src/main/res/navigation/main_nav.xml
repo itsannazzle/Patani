@@ -37,7 +37,11 @@
         android:id="@+id/daftarFragment"
         android:name="com.nextint.patani.ui.register.DaftarFragment"
         android:label="fragment_daftar"
-        tools:layout="@layout/fragment_daftar" />
+        tools:layout="@layout/fragment_daftar" >
+        <action
+            android:id="@+id/action_daftarFragment_to_regisBerhasilFragment"
+            app:destination="@id/regisBerhasilFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.nextint.patani.ui.home.HomeFragment"
@@ -69,5 +73,23 @@
         android:id="@+id/keranjangFragment"
         android:name="com.nextint.patani.ui.cart.KeranjangFragment"
         android:label="fragment_keranjang"
-        tools:layout="@layout/fragment_keranjang" />
+        tools:layout="@layout/fragment_keranjang" >
+        <action
+            android:id="@+id/action_keranjangFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/regisBerhasilFragment"
+        android:name="com.nextint.patani.ui.register.RegisBerhasilFragment"
+        android:label="fragment_regis_berhasil"
+        tools:layout="@layout/fragment_regis_berhasil" >
+        <action
+            android:id="@+id/action_regisBerhasilFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.nextint.patani.ui.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
 </navigation>

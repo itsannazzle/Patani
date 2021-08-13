@@ -36,6 +36,9 @@
     <string name="btn_minus">btn minus</string>
     <string name="btn_plus">btn plus</string>
     <string name="tambah_ke_keranjang">Tambah ke keranjang</string>
+    <string name="welcomtext">Terima kasih terlah bergabung bersama kami, mari bantu petani di Indonesia untuk berkembang.</string>
+    <string name="registrasi_berhasil">Registrasi Berhasil</string>
+    <string name="paymentmet">Pilih metode pembayaran</string>
     <string-array name="satuan">
         <item>Kg</item>
         <item>Kodi</item>
